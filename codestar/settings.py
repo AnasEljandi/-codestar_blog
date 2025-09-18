@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-n9hb#=9i6+k&ag%ux4ja*wx2m_3!nfujyxn*@ugkasdorf0^fm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.herokuapp.com']
 
@@ -84,8 +84,12 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 #      'NAME': BASE_DIR / 'db.sqlite3',
 #   }
 # }
-DDATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.parse(
+        "postgresql://neondb_owner:npg_byV6tofrMSY1@ep-solitary-mountain-agocnhhs.c-2.eu-central-1.aws.neon.tech/rack_straw_lip_666641?sslmode=require"
+    )
 }
 
 
